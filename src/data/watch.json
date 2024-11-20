@@ -1,0 +1,26 @@
+[
+    {
+        "image":"../assets/watch/watch-1.png",
+        "name":"classic series-45mm",
+        "color":"black/white",
+        "price":"100",
+        "bg-color":"#F31E2E",
+        "description":"MVMT watch for men, this watch is part of the Classic collection. The dial of this watch measures 45mm of diameter. The movement of this watch works with a quartz battery. This watch is water resistant up to 30 meters."
+    },
+    {
+        "image":"../assets/watch/watch-2.png",
+        "name":"classic series-35mm",
+        "color":"brown/white",
+        "price":"175",
+        "bg-color":"#C9B092",
+        "description":"MVMT watch for men, this watch is part of the Classic collection. The dial of this watch measures 45mm of diameter. The movement of this watch works with a quartz battery. This watch is water resistant up to 30 meters."
+    },
+    {
+        "image":"../assets/watch/watch-3.png",
+        "name":"classic series-55mm",
+        "color":"black/blue",
+        "price":"150",
+        "bg-color":"#3C4782",
+        "description":"MVMT watch for men, this watch is part of the Classic collection. The dial of this watch measures 45mm of diameter. The movement of this watch works with a quartz battery. This watch is water resistant up to 30 meters."
+    }
+]
