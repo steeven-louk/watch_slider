@@ -1,0 +1,1 @@
+nav{width:calc(100vw - 2.9em) !important}nav ul li{cursor:pointer}main{height:100vh}main .left-bg{height:100vh;width:33rem;aspect-ratio:3/2;-webkit-clip-path:polygon(0 0, 100% 0%, 40% 100%, 0% 100%);clip-path:polygon(0 0, 100% 0%, 40% 100%, 0% 100%);background:#d95b43;position:absolute;top:-55px;z-index:-2}
