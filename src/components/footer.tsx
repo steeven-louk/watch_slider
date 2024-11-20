@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-    <footer className='flex ml-6 w-fit'>
+    <footer className='flex ml-6 w-fit translate-y-[2rem]'>
      
        <ul className='uppercase flex gap-5 my-auto font-bold'>
         <li className="cursor-pointer hover:text-blue-500">facebook</li>

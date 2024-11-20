@@ -1,87 +1,92 @@
-// import { useState } from 'react'
-
-import './App.scss'
-import Footer from './components/footer'
-import Navbar from './components/navbar'
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-import { FaStar } from "react-icons/fa6";
+import './App.scss';
+import Footer from './components/footer';
+import Navbar from './components/navbar';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import watchs from './data/watch.json';
+import { useState } from 'react';
+import Card from './components/card';
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [watch] = useState(watchs);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % watch.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + watch.length) % watch.length);
+  };
 
   return (
-    <div className='flex container h-full'>
-     <aside className='flex flex-col bg-white'>
-      <span className='bg-black p-2'><GiHamburgerMenu size={28} className='mx-auto'/></span>
-      <nav className='vertical-text h-full'>
-      <ul className='text-black'>
-      <li>SHIOP MENS</li>
-      <li>-</li>
-      <li>SHOP WOMENS</li>
-      <li>-</li>
-      <li>GIFT BOXES</li>
-      <li>-</li>
-      <li>MORE</li>      
-      </ul>
-      </nav>
-     </aside>
-     <main className='flex flex-col relative '>
-      <Navbar/>
-      <section className='relative'>
-        <div className='bg-green-500 left-bg'></div>
+    <div className="flex container h-full">
+      {/* Sidebar */}
+      <aside className="flex flex-col bg-white">
+        <span className="bg-black p-2">
+          <GiHamburgerMenu size={28} className="mx-auto" />
+        </span>
+        <nav className="vertical-text h-full flex items-center mx-auto">
+  <ul className="text-black space-y-4">
+    <li className="vertical-text-item">SHOP MENS</li>
+    <li className="vertical-text-item">-</li>
+    <li className="vertical-text-item">SHOP WOMENS</li>
+    <li className="vertical-text-item">-</li>
+    <li className="vertical-text-item">GIFT BOXES</li>
+    <li className="vertical-text-item">-</li>
+    <li className="vertical-text-item">MORE</li>
+  </ul>
+</nav>
+      </aside>
 
-        <article className="article grid place-items-center	my-auto justify-center h-full items-center mx-auto">
-          <div className="container relative">
-            <div className="card flex w-[60rem]">
-              <div className="left">
-              <img src="./assets/watch/watch-1.png" className='w-[80rem]' alt="watch" />
-              </div>
-              <div className="right my-auto">
-              <div className="card-head">
-                <div className="card-title ">
-                  <p className="uppercase font-bold text-md mb-3">classic series-45mm</p>
-                  <h1 className='font-bold text-2xl'>BLACK/WHITE</h1>
-                </div>
-              </div>
-              <div className="card-content my-5">
-                <div className='my-4 flex items-baseline'>
-                  <h1 className='text-2xl font-bold'>${Math.round(100).toFixed(2)} <span className='uppercase text-sm'>usd</span></h1>
-                  <div className='font-bold items-center inline-flex ml-auto gap-2'>
-                    <div className='starts inline-flex gap-2'>
-                    <FaStar className='text-red-500'/>
-                    <FaStar className='text-red-500'/>
-                    <FaStar className='text-red-500'/>
-                    <FaStar className='text-red-500'/>
-                    <FaStar className='text-red-500'/>
-                      </div>
-                    +1K reviews
-                  </div>
-                </div>
-                <div className="card-description text-justify">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod reprehenderit omnis nemo sapiente voluptate nostrum dolorum cumque autem, obcaecati voluptates.
-                </div>
-              </div>
-              <div className="card-footer  flex gap-4">
-                <button className='border p-2 uppercase'>details</button>
-                <button className='bg-red-500 p-2 uppercase'>add to cart</button>
-              </div>
-              </div>
+      {/* Main content */}
+      <main className="flex flex-col relative w-full">
+        <Navbar />
+
+        {/* Slider section */}
+        <section className="relative">
+          <div
+            className="left-bg"
+            style={{ backgroundColor: watch[currentIndex]?.bg_color }}
+          ></div>
+
+          <article className="article grid place-items-center my-auto justify-center h-full items-center mx-auto">
+            <div className="container relative">
+              <Card 
+                image={watch[currentIndex].image}
+                name={watch[currentIndex].name}
+                color={watch[currentIndex].color}
+                price={parseInt(watch[currentIndex].price)}
+                bg_color={watch[currentIndex].bg_color}
+                description={watch[currentIndex].description}
+              />
+              <h2 className="bg-text">CLASSIC SERIES</h2>
             </div>
-            <h2 className='bg-text'>CLASSIC SERIES</h2>
-          </div>
-        </article>
-      </section>
-      <Footer/>
-      <div className="arrow flex flex-col absolute bottom-0 right-0">
-        <button className='w-[50px] h-[50px] bg-red-500 text-center '><IoIosArrowBack size={26} className='mx-auto justify-center font-bold'/></button>
-        <button className='w-[50px] h-[50px] bg-black'><IoIosArrowForward size={26} className='mx-auto justify-center font-bold'/></button>
-      </div>
-     </main>
-       
+          </article>
+        </section>
+
+        <Footer />
+
+        {/* Slider arrows */}
+        <div className="arrow flex flex-col absolute bottom-0 right-0">
+          <button
+            className="w-[50px] h-[50px] text-center hover:bg-none border-0 outline-none"
+            onClick={handleNext}
+            style={{ backgroundColor: watch[currentIndex]?.bg_color }}
+          >
+            <IoIosArrowForward size={26} className="mx-auto font-bold" />
+            
+          </button>
+          <button
+            className="w-[50px] h-[50px] bg-black text-center border-0"
+            onClick={handlePrev}
+          >
+            <IoIosArrowBack size={26} className="mx-auto font-bold" />
+          </button>
+        </div>
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
