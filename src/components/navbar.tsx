@@ -1,19 +1,21 @@
-import React from 'react'
+import { IoPerson } from "react-icons/io5";
+import { IoSearchSharp } from "react-icons/io5";
+import { LiaShoppingBagSolid } from "react-icons/lia";
 
 
 export default function Navbar() {
   return (
-    <nav className='flex justify-between p-2 w-full bg-red-500 p-4'>
-       <img src={"../assets/watch-logo.png"} alt="watch-logo" />
-       <ul className='capitalize flex gap-5'>
+    <nav className='navbar flex justify-between w-full aligns-baseline'>
+       <img src={"../assets/watch-logo.png"} className='w-[7rem]' alt="watch-logo" />
+       <ul className='capitalize items-baseline flex gap-8 my-auto'>
         <li>home</li>
         <li>about us</li>
         <li>gallery</li>
         <li>e-store</li>
         <li>contact us</li>
-        <li>p</li>
-        <li>s</li>
-        <li>c</li>
+        <li><IoPerson/></li>
+        <li><IoSearchSharp/></li>
+        <li><LiaShoppingBagSolid/></li>
        </ul>
     </nav>
   )

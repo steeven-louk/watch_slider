@@ -1,24 +1,37 @@
-nav{
-  width: calc(100vw - 2.9em)!important;
-  // width: 100%;
+.navbar{
+  width: calc(100vw - 6em)!important;
 
   ul li{
     cursor: pointer;
   }
 }
 
+
 main{
   height: 100vh;
 
   .left-bg{
-    height: 100vh;
+    height: 102vh;
     width: 33rem;
-  aspect-ratio: 3/2;
-  clip-path: polygon(0 0, 100% 0%, 40% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 30% 100%, 0% 100%);
   background: #D95B43;
   position: absolute;
-  top: -55px;
+  top: -6rem;
   z-index: -2;
 
+}
+
+article{
+  .container > .bg-text{
+
+      font-size: 9.5rem;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 9.9rem;
+      letter-spacing: 2.5rem;
+      z-index: -1;     
+      color: rgba(104, 97, 97, 0.486);
+  }
 }
 }
